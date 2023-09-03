@@ -22,8 +22,8 @@ public class Notification {
     @Column(name = "date", nullable = false)
     private LocalDate date;
 
-    @Column(name = "is_read", nullable = false)
-    private boolean isRead;
+    @Column(name = "read", nullable = false)
+    private boolean read;
 
     @Column(name = "user_id", nullable = false)
     private int user;
@@ -31,4 +31,10 @@ public class Notification {
     @Column
     @Enumerated(EnumType.STRING)
     private NotificationType type;
+
+    public Notification(int user){
+        this.date = LocalDate.now();
+        this.read = false;
+        this.user = user;
+    }
 }
